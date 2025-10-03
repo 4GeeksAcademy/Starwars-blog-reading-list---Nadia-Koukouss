@@ -29,10 +29,10 @@ class Planeta(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
-    clima: Mapped[str] = mapped_column(String(50))
-    poblacion: Mapped[int] = mapped_column(Integer)
-    terreno: Mapped[str] = mapped_column(String(50))
-    diametro: Mapped[int] = mapped_column(Integer)
+    clima: Mapped[str] = mapped_column(String(50),nullable=True)
+    poblacion: Mapped[int] = mapped_column(Integer,nullable=True)
+    terreno: Mapped[str] = mapped_column(String(50),nullable=True)
+    diametro: Mapped[int] = mapped_column(Integer,nullable=True)
 
     def __repr__(self):
         return '<Planeta %r>' % self.nombre
@@ -53,13 +53,13 @@ class Personaje(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
-    altura: Mapped[int] = mapped_column(Integer)
-    peso: Mapped[int] = mapped_column(Integer)
-    color_cabello: Mapped[str] = mapped_column(String(30))
-    color_piel: Mapped[str] = mapped_column(String(30))
-    color_ojos: Mapped[str] = mapped_column(String(30))
-    fecha_nacimiento: Mapped[str] = mapped_column(String(20))
-    genero: Mapped[str] = mapped_column(String(20))
+    altura: Mapped[int] = mapped_column(Integer, nullable=True)
+    peso: Mapped[int] = mapped_column(Integer, nullable=True)
+    color_cabello: Mapped[str] = mapped_column(String(30),nullable=True)
+    color_piel: Mapped[str] = mapped_column(String(30),nullable=True)
+    color_ojos: Mapped[str] = mapped_column(String(30),nullable=True)
+    fecha_nacimiento: Mapped[str] = mapped_column(String(20),nullable=True)
+    genero: Mapped[str] = mapped_column(String(20),nullable=True)
 
     def __repr__(self):
         return  '<Personaje %r>' % self.nombre
